@@ -1,0 +1,29 @@
+<table *ngIf="employee">
+  <thead>
+    <th colspan="2">Employee Details</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Code</td>
+      <td>{{ employee.code }}</td>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td>{{ employee.name }}</td>
+    </tr>
+    <tr>
+      <td>Gender</td>
+      <td>{{ employee.gender }}</td>
+    </tr>
+    <tr>
+      <td>Annual Salary</td>
+      <td>{{ employee.annualsalary }}</td>
+    </tr>
+    <tr>
+      <td>Date Of Birth</td>
+      <td>{{ employee.dateofbirth }}</td>
+    </tr>
+  </tbody>
+</table>
+<h1 *ngIf="!employee"> {{ statusMessage }} </h1>
+
