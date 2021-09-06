@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup,FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-create-employee',
@@ -10,23 +10,50 @@ export class CreateEmployeeComponent implements OnInit {
 
   employeeForm!: FormGroup;
 
-  constructor() { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.employeeForm = new FormGroup({
-      fullName: new FormControl(),
-      email: new FormControl(),
+
+    //Create Form Group instance using FormGroup Object 
+    // this.employeeForm = new FormGroup({
+    //   fullName: new FormControl(),
+    //   email: new FormControl(),
+    //   // create skills form group
+    //   skills: new FormGroup({
+    //     skillName: new FormControl(),
+    //     experienceInYear: new FormControl(),
+    //     profeciency: new FormControl()
+    //   })
+    // })
+
+    //Create Form Group instance using FormBuilder Object 
+    this.employeeForm = this.fb.group({
+      fullName: ['',Validators.required] ,
+      email: [''],
       // create skills form group
-      skills: new FormGroup({
-        skillName: new FormControl(),
-        experienceInYear: new FormControl(),
-        profeciency: new FormControl()
+      skills: this.fb.group({
+        skillName: [''],
+        experienceInYear: [''],
+        profeciency: ['beginner']
       })
     })
   }
 
   onSubmit(): void{
     console.log(this.employeeForm);
+  }
+
+  onLoadDataClick():void{
+     
+    this.employeeForm.patchValue({
+      fullName: "Noufel",
+      email: "bNoufel@gmail.com",
+      skills: {
+        skillName: "Java",
+        experienceInYear: "4",
+        profeciency: "intermediate"
+      }
+    });
   }
 
 }
