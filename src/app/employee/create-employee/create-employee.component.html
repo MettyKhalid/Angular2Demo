@@ -1,0 +1,109 @@
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()" class="form-horizontal">
+  <div class="card text-center">
+    <div class="card-header">
+      <h3 class="card-title">Create Employee</h3>
+    </div>
+    <div class="card-body ">
+      <div class="form-group">
+        <div class="row mb-2">
+          <label for="fullName" class="col-sm-2 control-label">Full Name</label>
+          <div class="col-sm-8">
+            <input formControlName="fullName" type="text" id="fullName" class="form-control">
+          </div>
+        </div>
+        <div class="row mb-2">
+          <label for="email" class="col-sm-2 control-label">E-mail</label>
+          <div class="col-sm-8">
+            <input formControlName="email" type="text" id="email" class="form-control">
+          </div>
+        </div>
+      </div>
+
+      <div formGroupName="skills">
+        <div class="row mb-2">
+          <label for="skillName" class="col-sm-2 control-label">Skill</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" placeholder="Name" id="skillName" formControlName="skillName">
+          </div>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" placeholder="Experience In Year" formControlName="experienceInYear">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row mb-2">
+            <label class="col-md-2 control-label" >Profeciency</label>
+            <div class="d-flex justify-content-around col-md-8">
+              <label class="radio-inline" >
+                <input type="radio" value="beginner" formControlName="profeciency">
+                Beginner
+              </label>
+              <label class="radio-inline">
+                <input type="radio" value="intermediate" formControlName="profeciency">
+                Intermediate
+              </label>
+              <label class="radio-inline">
+                <input type="radio" value="advanced" formControlName="profeciency">
+                Advanced
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer text-muted">
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+  </div>
+</form>
+
+<!-- <div class="card text-center">
+  <div class="card-header">
+    Featured
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+  <div class="card-footer text-muted">
+    2 days ago
+  </div>
+</div> -->
+
+<!-- <div class="container">
+  <div class="row">
+    <div style="background-color: aqua;" class="col-6 col-sm-4 col-md-3">Col 1</div>
+    <div style="background-color: antiquewhite " class="col-6 col-sm-4 col-md-3" >Col 2</div>
+    <div style="background-color: teal;" class="col col-sm-4 col-md-3" >Col 3</div>
+    <div style="background-color:black;" class="col col-md-3">Col 4</div>
+    <div style="background-color:blue;" class="col">Col 5</div>
+    <div style="background-color:blueviolet;" class="col">Col 6</div>
+    <div style="background-color:brown;" class="col">Col 7</div>
+    <div style="background-color:chartreuse;" class="col">Col 8</div>
+    <div style="background-color:chocolate;" class="col">Col 9</div>
+    <div style="background-color:cornflowerblue;" class="col">Col 10</div>
+    <div style="background-color: violet;" class="col">Col 11</div>
+    <div style="background-color: skyblue;" class="col">Col 12</div>
+  </div>
+</div> -->
+
+<table border="1">
+  <tr border="1">
+    <th style="padding: 10px">Form Group</th>
+    <th style="padding: 10px">Form Control (fullName)</th>
+  </tr>
+  <tr>
+    <td style="padding: 10px">
+      Touched : {{ employeeForm.touched }} <br/>
+      Dirty : {{ employeeForm.dirty }} <br/>
+      Valid : {{ employeeForm.valid }} <br/>
+      From value : {{ employeeForm.value | json }}
+    </td>
+    <td style="padding: 10px">
+      Touched : {{ employeeForm.controls.fullName.touched }} <br/>
+      Dirty : {{ employeeForm.controls.fullName.dirty }} <br/>
+      Valid : {{ employeeForm.controls.fullName.valid }} <br/>
+      From value : {{ employeeForm.controls.fullName.value }}
+    </td>
+  </tr>
+</table>
